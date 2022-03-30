@@ -13,7 +13,7 @@ public class JPAUtil {
 	
 	public static EntityManager getEntityManager() {
 		if (emf == null)
-			emf = Persistence.createEntityManagerFactory("Almox");
+			emf = Persistence.createEntityManagerFactory("CarrosUsadosVendas");
 		return emf.createEntityManager();
 	}
 
