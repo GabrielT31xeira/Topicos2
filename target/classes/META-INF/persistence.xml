@@ -3,6 +3,12 @@
 	<persistence-unit name="CarrosUsadosVendas">
 		<class>model.DefaultEntity</class>
 		<class>model.User</class>
+		<class>model.Carro</class>
+		<class>model.Compra</class>
+		<class>model.DadosAdcCarro</class>
+		<class>model.Marca</class>
+		<class>model.Telefone</class>	
+		
 <!-- 		<class>model.Sexo</class>	
  -->	<properties>
 			<!-- DB Driver -->

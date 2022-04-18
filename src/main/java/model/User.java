@@ -5,10 +5,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User extends DefaultEntity implements Serializable{
+	
 	private static final long serialVersionUID = -2828223166739295713L;
 	@Column(length = 60)
 	private String nome;
@@ -19,8 +20,7 @@ public class User extends DefaultEntity implements Serializable{
 	@Column(length = 30)
 	private String senha;
 	private Date data_nasc;
-//	@OneToOne
-//	private Sexo sexo;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -51,4 +51,5 @@ public class User extends DefaultEntity implements Serializable{
 	public void setData_nasc(Date data_nasc) {
 		this.data_nasc = data_nasc;
 	}
+
 }
