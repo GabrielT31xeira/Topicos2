@@ -1,14 +1,12 @@
 package model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 
 @Entity
-public class User extends DefaultEntity implements Serializable{
+public class Usuario extends DefaultEntity implements Serializable{
 	
 	private static final long serialVersionUID = -2828223166739295713L;
 	@Column(length = 60)
@@ -19,7 +17,7 @@ public class User extends DefaultEntity implements Serializable{
 	private String cpf;
 	@Column(length = 30)
 	private String senha;
-	private Date data_nasc;
+	private String data_nasc;
 	
 	public String getNome() {
 		return nome;
@@ -45,11 +43,10 @@ public class User extends DefaultEntity implements Serializable{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Date getData_nasc() {
+	public String getData_nasc() {
 		return data_nasc;
 	}
-	public void setData_nasc(Date data_nasc) {
+	public void setData_nasc(String data_nasc) {
 		this.data_nasc = data_nasc;
 	}
-
 }

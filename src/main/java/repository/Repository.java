@@ -78,7 +78,7 @@ public class Repository<T extends DefaultEntity> {
 			final ParameterizedType type = (ParameterizedType) getClass().getGenericSuperclass();
 			Class<T> tClass = (Class<T>) (type).getActualTypeArguments()[0];
 			
-			T t = (T) getEntityManager().find(tClass, id);
+			T t = getEntityManager().find(tClass, id);
 			
 			return t;
 		} catch (Exception e) {

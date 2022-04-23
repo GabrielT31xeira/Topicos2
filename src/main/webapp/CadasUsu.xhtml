@@ -4,13 +4,13 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Login</title>
+	<title>Cadastro de Usuario</title>
 </h:head>
 <h:body>
 	<h:form>
 		<p:growl id="growl" showDetail="true" />
 		<center>
-			<p:panel header="Login" style="width:500px;">
+			<p:panel header="Cadastro de Usuario" style="width:500px;">
 				<div class="p-grid ui-fluid">
 					<h:panelGrid columns="2">
 						<p:outputLabel value="Nome: " />
@@ -18,15 +18,53 @@
 						    <div class="p-col-12 p-md-4">
 				                <div class="ui-inputgroup">
 				                    <p:inputText value="#{usuarioController.entity.nome}" />
-				                    <p:commandButton icon="pi pi-search" 
+				                     <p:commandButton icon="pi pi-search" 
 				                    	styleClass="ui-button-warning"
-				                    	onclick="PF('dlg').show()"/>
+				                    	actionListener="#{usuarioController.abrirUsuarioListing}">
+				                    	<p:ajax 
+				                    		event="dialogReturn" 
+				                    		listener="#{usuarioController.obterUsuarioListing}" 
+				                    		update="@form"/>
+				                    </p:commandButton>
 				                </div>
 				            </div>
 						</h:panelGroup>
 						
-						<p:outputLabel value="Senha: " />
-						<p:password value="#{usuarioController.entity.senha}" />
+						<p:outputLabel value="Email:  " />
+						<h:panelGroup>
+						    <div class="p-col-12 p-md-4">
+				                <div class="ui-inputgroup">
+				                    <p:inputText value="#{usuarioController.entity.email}" />
+				                </div>
+				            </div>
+						</h:panelGroup>
+						
+						<p:outputLabel value="CPF: " />
+						<h:panelGroup>
+						    <div class="p-col-12 p-md-4">
+				                <div class="ui-inputgroup">
+				                    <p:inputText value="#{usuarioController.entity.cpf}" />
+				                </div>
+				            </div>
+						</h:panelGroup>
+						
+						<p:outputLabel value="Senha:  " />
+						<h:panelGroup>
+						    <div class="p-col-12 p-md-4">
+				                <div class="ui-inputgroup">
+				                    <p:inputText value="#{usuarioController.entity.senha}" />
+				                </div>
+				            </div>
+						</h:panelGroup>
+						
+						<p:outputLabel value="Data de Nascimento: " />
+						<h:panelGroup>
+						    <div class="p-col-12 p-md-4">
+				                <div class="ui-inputgroup">
+				                    <p:inputText value="#{usuarioController.entity.data_nasc}" />
+				                </div>
+				            </div>
+						</h:panelGroup>
 					</h:panelGrid>
 				</div>
 				<f:facet name="footer">
@@ -70,19 +108,6 @@
 			</p:panel>
 		</center>
 	</h:form>
-
-    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>
-
-    <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
-        <div class="p-text-center">
-           <p:graphicImage height="150px" width="200px"
-           		value="./resources/images/loading.gif"/>
-        </div>
-    </p:dialog>	
-	
-   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
-       <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
-       <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
-    </p:confirmDialog>
+   
 </h:body>
 </html>

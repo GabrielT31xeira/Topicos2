@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Carro extends DefaultEntity implements Serializable{
@@ -15,8 +14,8 @@ public class Carro extends DefaultEntity implements Serializable{
 	private String cor;
 	private String valor;
 	
-	@ManyToOne
-	private User user;
+//	@ManyToOne
+//	private User user;
 	
 	public String getTitulo() {
 		return titulo;
@@ -48,10 +47,10 @@ public class Carro extends DefaultEntity implements Serializable{
 	public void setValor(String valor) {
 		this.valor = valor;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 }

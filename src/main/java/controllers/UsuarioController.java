@@ -5,23 +5,36 @@ import java.io.Serializable;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
-import model.User;
-import repository.UserRepository;
+import org.primefaces.event.SelectEvent;
+
+import controllers.listing.UsuarioListing;
+import model.Usuario;
+import repository.UsuarioRepository;
 
 @Named
 @ViewScoped
-public class UsuarioController extends Controller<User> implements Serializable {
+public class UsuarioController extends Controller<Usuario> implements Serializable {
 	private static final long serialVersionUID = -7942096441195213746L;
+	
 	public UsuarioController() {
-		super(new UserRepository());
+		super(new UsuarioRepository());
 	}
 	@Override
-	public User getEntity() {
+	public Usuario getEntity() {
 		if (entity == null)
-			entity = new User();
+			entity = new Usuario();
 		return entity;
 	}
-	public void editar(User user) {
+	public void editar(Usuario user) {
 		setEntity(user);
+	}
+	
+	public void abrirUsuarioListing() {
+		UsuarioListing listing = new UsuarioListing();
+		listing.open();
+	}
+	
+	public void obterUsuarioListing(SelectEvent<Usuario> event) {
+		setEntity(event.getObject());
 	}
 }
